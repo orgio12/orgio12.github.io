@@ -1,0 +1,80 @@
+/* style.css */
+
+/* Үндсэн фонт болон зайг тохируулах */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Зөөлөн саарал фон */
+    color: #333;
+}
+
+/* Навигацийн хэсэг - Flexbox ашиглан зэрэгцүүлэх */
+.navbar {
+    background-color: #007BFF; /* Цэнхэр өнгө */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: flex-start; /* Эхнээс нь зэрэгцүүлэх */
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #0056b3; /* Хувьсах үед өнгө өөрчлөгдөх */
+}
+
+/* Нийтлэг агуулгын container */
+.container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Гарчиг */
+h1, h2 {
+    color: #007BFF;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+/* Даалгаварт заасан Table-ын загварчлал */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Хилүүдийг нийлүүлэх */
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Холбоо барих хэсгийн загвар */
+.contact-info p {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-left: 5px solid #007BFF;
+    margin-bottom: 15px;
+}

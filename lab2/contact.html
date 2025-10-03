@@ -2,26 +2,43 @@
 <html lang="mn">
 <head>
     <meta charset="UTF-8">
-    <title>Холбоо барих</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Холбоо Барих</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <table border="1" width="100%">
-        <tr>
-            <td><a href="index.html">Нүүр</a></td>
-            <td><a href="about.html">Миний тухай</a></td>
-            <td><a href="family.html">Миний гэр бүл</a></td>
-            <td><a href="friends.html">Найзууд</a></td>
-            <td><a href="contact.html">Холбоо барих</a></td>
-        </tr>
-    </table>
+    <header>
+        <nav class="navbar">
+            <a href="index.html">Нүүр</a>
+            <a href="about.html">Миний Тухай</a>
+            <a href="family.html">Гэр Бүл</a>
+            <a href="friends.html">Найзууд</a>
+            <a href="contact.html">Холбоо Барих</a>
+        </nav>
+    </header>
 
-    <h1>Холбоо барих</h1>
-    <p>Надтай дараах хаягаар холбогдоорой:</p>
-    <ul>
-        <li>Имэйл: munkhorgil20061112@gmail.com</li>
-        <li>Утас: 86877899</li>
-        <li>Фэйсбүүк: Мөнх Оргил</li>
-        <li>Инстаграм: orgioo____12</li>
-    </ul>
+    <div class="container">
+        <h1>Надтай Холбоо Барих</h1>
+        <p>Та доорх мэдээллээр дамжуулан надтай холбогдох боломжтой.</p>
+
+        <div class="contact-info">
+            <p><strong>Цахим шуудан:</strong> <a href="mailto:munkhorgil20061112@gmail.com">munkhorgil20061112@gmail.com</a></p>
+            <p><strong>Утасны дугаар:</strong> +976 86877899</p>
+            <p><strong>Инстаграм:</strong> <a href="https://www.instagram.com/orgioo____12/" target="_blank">orgioo____12</a></p>
+            <p><strong>Хаяг:</strong> Улаанбаатар хот, Хан-Уул дүүрэг</p>
+        </div>
+
+        <h2>Санал Хүсэлт</h2>
+        <form>
+            <label for="name">Нэр:</label><br>
+            <input type="text" id="name" name="name" style="width: 100%; padding: 8px; margin-bottom: 10px;"><br>
+            
+            <label for="message">Зурвас:</label><br>
+            <textarea id="message" name="message" rows="5" style="width: 100%; padding: 8px; margin-bottom: 10px;"></textarea><br>
+            
+            <input type="submit" value="Илгээх" style="background-color: #007BFF; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">
+        </form>
+    </div>
+
 </body>
 </html>
