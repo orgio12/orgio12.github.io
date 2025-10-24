@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #202020;
+  color: #ffffff;
+  text-align: left;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: #747474;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.logo span {
+  color: #ff3366;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ccc;
+  margin: 0 15px;
+  transition: color 0.3s;
+}
+nav a:hover,
+nav a.active {
+  color: #ff3366;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px;
+}
+
+.hero-text {
+  width: 50%;
+}
+.hero-text .welcome {
+  letter-spacing: 3px;
+  color: #888;
+  text-transform: uppercase;
+}
+.hero-text h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+.hero-text h1 span {
+  color: #ff3366;
+}
+.hero-text h2 {
+  font-weight: 400;
+  color: #f1f1f1;
+  margin-top: 10px;
+}
+.description {
+  margin-top: 20px;
+  line-height: 1.6;
+  color: #bbb;
+}
+
+.hero-img img {
+  border-radius: 20px;
+  width: 350px;
+  height: auto;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  background: #ff3366;
+  color: white;
+  transition: background 0.3s;
+}
+.btn.secondary {
+  background: transparent;
+  border: 2px solid #ff3366;
+}
+.btn:hover {
+  background: #ff0055;
+}
+
+.content {
+  padding: 80px;
+  text-align: left;
+}
+
+.projects {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 10px;
+  width: 300px;
+}
+.card h3 {
+  color: #ff3366;
+}
+.card p {
+  color: #ccc;
+}
