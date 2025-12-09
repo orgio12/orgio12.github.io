@@ -7,56 +7,53 @@
   --gray: #9090A5;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body{
     font-family: 'Lato', sans-serif;
     background-color: rgb(29, 28, 28);
 }
 
-iframe {
-  width: 100%;
-  border-radius: 10px;
-}
-
 .div1{
     background-color: var(--indigo);
     color: white;
-    padding-bottom: 0;
-    padding-top: 10px;
+    padding: 10px;
+    font-size: 20px;
+    padding-left: 20px;
+    text-align: left;
 }
 
 .div1 img{
-    float: left;
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
 }
 
 .div2{
     background-color: var(--dark-navy);
     color: white;
-    padding: 30px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 50px 30px;
+    padding-left: 50px; 
+    text-align: left;
 }
+
 .div2 h1{
     font-size: 6cap;
 }
+
 .div2 button{
     background-color: var(--pink);
     color: white;
-    padding: 5px;
-    border: 0;
+    padding: 5px 10px;
+    border: none;
     font-size: 12px;
 }
- .badge {
-      background-color: #352BA5; /* Blue circle */
-      border-radius: 50%;
-      padding: 4px 10px;
-      font-size: 14px;
-      margin-left: 10px;
-    }
+
 .div3{
     background-color: white;
-    padding-top: 30px;
-    padding-left: 20px;
-    padding-bottom: 30px;
+    padding: 30px 20px;
 }
 
 .div3 h{
@@ -65,55 +62,67 @@ iframe {
 
 .div3_a{
     background-color: var(--gray);
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 0;
     height: 40px;
     color: white;
     padding: 10px;
 }
 
-.div3_r{
-    color: white;
-}
-
 .div3_r1{
     background-color: var(--pink);
     margin-top: 20px;
-    align-items: center;
     height: 25px;
-}.div3_r1 span{
     display:flex;
-    justify-content: center;
+    justify-content:center;
+    align-items:center;
 }
+
+.badge {
+    background-color: #352BA5;
+    border-radius: 50%;
+    padding: 4px 10px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
 .div3_r2{
     background-color: var(--gray);
     margin-top: 20px;
     padding-left: 10px;
+    color: white;
 }
+
 .div3_r3{
     background-color: var(--dark-navy);
     padding: 15px;
+    color: white;
 }
+
 .div3_r3 input{
     width: 100%;
     background-color: var(--indigo);
     border-top: 2px solid var(--gray);
     border-bottom: 4px solid var(--gray);
-    border-left: 0px ;
-    border-right: 0px;
+    border-left: 0;
+    border-right: 0;
     margin-bottom: 20px;
+    color: white;
 }
+
 .div3_r3 button{
     width: 100%;
     background-color: var(--pink);
     height: 30px;
+    border: none;
 }
+
 .div3_r4{
     background-color: var(--indigo);
     text-align: center;
     height: 30px;
+    color: white;
+    padding-top: 5px;
 }
-
 
 .div3_r5{
     border: 1px solid var(--gray);
@@ -122,26 +131,20 @@ iframe {
     color: black;
 }
 
-
-u{
-    font-size: 12px;
-}
-
 .meter1{
-    float: left;
     background-color: var(--pink);
     width: 70%;
     height: 7px;
 }
+
 .meter2{
-    float: left;
     background-color: var(--green);
     width: 30%;
     height: 7px;
 }
 
 .cool{
-     display:inline-block;
+    display:inline-block;
     background-color: var(--pink);
     color: white;
     width: 48%;
@@ -157,16 +160,21 @@ u{
     width: 48%;
     margin-left: 2%;
     text-align: center;
-    
 }
 
 .div4{
     background-color: var(--dark-navy); 
     color: white;
     padding:15px;
-    padding-bottom: 0;
+    text-align:center;
 }
 
-img{
-    height: 20px;
+@media (max-width: 576px) {
+  .div1 img {
+      display: block;
+      margin: 0 auto;
+  }
+  .div2, .div3, .div4, .div1 {
+      text-align: center;
+  }
 }
