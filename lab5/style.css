@@ -169,6 +169,20 @@ body{
     text-align:center;
 }
 
+.envelope-area {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.envelope-area .badge {
+    line-height: 1; 
+    padding: 3px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (max-width: 576px) {
   .div1 img {
       display: block;
