@@ -1,0 +1,145 @@
+.hidden_title{
+    display:none;
+}
+
+.head{
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    min-height: 50px;
+    position: fixed;
+    z-index: 2;
+}
+
+.head nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.head div{
+    align-content: center;
+}
+
+.div1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 700px ;
+    font-size: 30px;
+    background-color: RGB(245, 245, 247);
+}
+
+.div1 p{
+    font-size: 15px;
+    color:gray
+}
+
+b{
+    font-size: 50px;
+}
+
+.div2{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    padding: none;
+    border: none;
+    font-size: 25px;
+
+    background-color: black;
+}
+
+
+.div2 img{
+    width: 55%;
+}
+
+.div3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 10px solid;
+    border-color: white;
+    font-size: 20px;
+    padding: 30px;
+
+    background-color: RGB(245, 245, 247);
+}
+
+.div3 div{
+    justify-content: center;
+    justify-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.div3 h2 {
+    font-size: 30px;
+}
+
+.div4{
+    display: flex;
+    justify-content: space-between;
+    min-height: 700px ;
+    font-size: 15px;
+    color:gray;
+    flex-direction: row;
+}
+
+.div4 p{
+    font-size: 15px;
+}
+
+
+.img1{
+    height: 70%;
+}
+
+.img2{
+    width: 50%;
+    position: relative;
+    margin: 30px;
+   
+}
+
+button{
+    background-color: #24a0ed;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+    min-width: 120px;   
+    font-size: 20px;  
+}
+button a{
+    color: white;   
+}
+
+.button1{
+    background-color: black;
+    border: 2px solid #24a0ed;
+    color: #24a0ed;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.col19{
+    width: 19%;
+    height: 250px;
+    background-color: bisque;
+}
+
+.rowbelow{
+    justify-content: space-around;
+}
+
+footer a{
+  color: grey;
+}

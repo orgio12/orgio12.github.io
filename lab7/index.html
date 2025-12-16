@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Бодлогууд</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f6f8;
+            padding:20px;
+        }
+        h2{color:#333}
+        .card{
+            background:#fff;
+            padding:15px;
+            margin-bottom:20px;
+            border-radius:8px;
+            box-shadow:0 2px 6px rgba(0,0,0,0.1);
+        }
+        input, button{
+            padding:8px;
+            margin:5px 0;
+        }
+        button{
+            cursor:pointer;
+        }
+        .result{
+            margin-top:10px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Лаб 7 бодлогууд</h1>
+
+<!-- 1 -->
+<div class="card">
+    <h2>1. Цифрүүдийн нийлбэр палиндром эсэх</h2>
+    <input type="number" id="num1" placeholder="Тоо оруулна уу">
+    <button onclick="checkPalindromeSum()">Шалгах</button>
+    <div class="result" id="res1"></div>
+</div>
+
+<!-- 2 -->
+<div class="card">
+    <h2>2. Чоно туулайг гүйцэх хугацаа</h2>
+    <input type="number" id="distance" placeholder="Зай (км)">
+    <button onclick="catchTime()">Тооцоолох</button>
+    <div class="result" id="res2"></div>
+</div>
+
+<!-- 3 -->
+<div class="card">
+    <h2>3. Байшингийн хаяг олох</h2>
+    <input type="number" id="apartment" placeholder="Тоот">
+    <button onclick="findAddress()">Олох</button>
+    <div class="result" id="res3"></div>
+</div>
+
+<!-- 4 -->
+<div class="card">
+    <h2>4. 5 тооны ХБЕХ</h2>
+    <input type="text" id="arr" placeholder="Ж: 2 3 4 5 6">
+    <button onclick="findLCM()">Олох</button>
+    <div class="result" id="res4"></div>
+</div>
+
+<!-- 5 -->
+<div class="card">
+    <h2>5. Өглөө / Орой бодлого</h2>
+    <input type="number" id="num5" placeholder="Тоо оруулна уу">
+    <button onclick="dayCheck()">Бодох</button>
+    <div class="result" id="res5"></div>
+</div>
+
+<script>
+// 1
+function checkPalindromeSum(){
+    let n = document.getElementById('num1').value;
+    let sum = 0;
+    for(let d of n) sum += Number(d);
+    let s = sum.toString();
+    let rev = s.split('').reverse().join('');
+    document.getElementById('res1').innerText = (s === rev)
+        ? `Цифрүүдийн нийлбэр ${sum} → ПАЛИНДРОМ`
+        : `Цифрүүдийн нийлбэр ${sum} → ПАЛИНДРОМ БИШ`;
+}
+
+// 2
+function catchTime(){
+    let d = Number(document.getElementById('distance').value);
+    let v1 = 25, v2 = 18;
+    let t = d / (v1 - v2); // цаг
+    let minutes = Math.floor(t * 60);
+    let seconds = Math.floor((t * 3600) % 60);
+    document.getElementById('res2').innerText = `${minutes} минут ${seconds} секунд`;
+}
+
+// 3
+function findAddress(){
+    let n = Number(document.getElementById('apartment').value);
+    let perEntrance = 9 * 4;
+    let entrance = Math.ceil(n / perEntrance);
+    let remain = n - (entrance - 1) * perEntrance;
+    let floor = Math.ceil(remain / 4);
+    let door = ((remain - 1) % 4) + 1;
+    document.getElementById('res3').innerText = `${entrance}-р орц, ${floor}-р давхар, ${door}-р хаалга`;
+}
+
+// 4
+function gcd(a,b){return b===0?a:gcd(b,a%b)}
+function lcm(a,b){return a*b/gcd(a,b)}
+function findLCM(){
+    let arr = document.getElementById('arr').value.split(' ').map(Number);
+    let res = arr[0];
+    for(let i=1;i<arr.length;i++) res = lcm(res, arr[i]);
+    document.getElementById('res4').innerText = `ХБЕХ = ${res}`;
+}
+
+// 5
+function dayCheck(){
+    let n = Number(document.getElementById('num5').value);
+    let hour = new Date().getHours();
+    let res;
+    if(hour < 12) res = n * n;
+    else res = Math.sqrt(n);
+    document.getElementById('res5').innerText = `Хариу: ${res}`;
+}
+</script>
+
+</body>
+</html>
