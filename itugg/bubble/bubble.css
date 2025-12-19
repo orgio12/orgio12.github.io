@@ -1,0 +1,19 @@
+body {
+    background: radial-gradient(circle, #1a0033, #00001a);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#scoreBoard {
+    margin: 15px;
+    font-size: 26px;
+    color: #ffb3ff;
+    text-shadow: 0 0 10px #ff66ff;
+}
+
+canvas {
+    border-radius: 20px;
+    box-shadow: 0 0 25px #7f00ff;
+    cursor: crosshair;
+}

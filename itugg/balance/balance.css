@@ -1,0 +1,11 @@
+body {
+    background: linear-gradient(135deg, #120033, #000022);
+    text-align: center;
+    color: #ffccff;
+}
+
+canvas {
+    background: #050014;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #9f00ff;
+}
