@@ -96,14 +96,13 @@ b{
 
 
 .img1{
-    height: 70%;
+    height: 100%;
 }
 
 .img2{
     width: 50%;
     position: relative;
     margin: 30px;
-   
 }
 
 button{
@@ -142,4 +141,12 @@ a{
 
 footer a{
   color: grey;
+}
+
+img .gold{
+    width: 100%;
+}
+
+.col-8{
+    align-items: center;
 }

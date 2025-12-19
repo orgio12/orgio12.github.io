@@ -1,0 +1,64 @@
+body {
+    background: linear-gradient(135deg, #1d2671, #c33764);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 36px;
+    letter-spacing: 2px;
+}
+
+#startBtn {
+    padding: 12px 24px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background: #ffd369;
+    color: #000;
+    font-weight: bold;
+    margin: 15px;
+}
+
+#question {
+    font-size: 20px;
+    margin: 15px;
+}
+
+#word {
+    font-size: 34px;
+    letter-spacing: 12px;
+    margin: 25px;
+    font-weight: bold;
+}
+
+img {
+    margin: 20px 0;
+}
+
+#keyboard {
+    max-width: 700px;
+    margin: auto;
+}
+
+#keyboard button {
+    margin: 5px;
+    padding: 10px 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: white;
+    color: black;
+}
+
+#keyboard button:disabled {
+    background: #555;
+    color: #aaa;
+    cursor: not-allowed;
+}
