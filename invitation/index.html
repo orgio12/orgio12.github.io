@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#080e1e">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="A tiny coding contest made just for Nomia.">
+<title>NomiaPC · The Birthday Invitational</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ambient a1" aria-hidden="true"></div><div class="ambient a2" aria-hidden="true"></div>
+<div class="particles" aria-hidden="true"></div>
+<header class="topbar">
+  <a class="wordmark" href="#" id="home-link" aria-label="NomiaPC home"><span class="mark">{♡}</span> Nomia<span class="mark-strong">PC</span><span class="dot-mark">.</span></a>
+  <span class="top-status"><span class="status-dot"></span> BIRTHDAY INVITATIONAL <span class="top-year">/ 2026</span></span>
+  <button id="soundless" class="text-button" type="button" title="No audio is used">NO AUDIO <span>◌</span></button>
+</header>
+<main class="app" id="app">
+  <!-- SCREEN 1 / LANDING -->
+  <section id="screen-home" class="screen is-active" aria-labelledby="home-heading">
+    <div class="hero-rail"><span>EST. 30 OCT / 19 YEARS IN THE MAKING</span><span class="line-deco"></span><span>1 VERY SPECIAL CONTESTANT</span></div>
+    <div class="hero-layout">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> THE INVITATION YOU DIDN'T KNOW YOU NEEDED</div>
+        <h1 id="home-heading">NOT <span class="outline">ICPC.</span><br>THIS IS<br><span class="gradient-text">NomiaPC.</span></h1>
+        <p class="hero-lede" id="hero-lede">Энэ бол ICPC биш ээ. Энэ бол арай чухал тэмцээн. 😌</p>
+        <p class="hero-sub">An exclusive coding contest for <b>one</b> legendary contestant.<br>Three tiny problems. One mysterious prize.</p>
+        <button id="start-btn" type="button" class="button button-primary big">ENTER CONTEST <span class="button-arrow">↗</span></button>
+        <p class="micro-line">NO REGISTRATION · NO ENTRY FEE · MAXIMUM CUTENESS</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="orbit-label ol-one">AC  ✓</div><div class="orbit-label ol-two">WA ?!</div><div class="orbit-label ol-three">19 ♡</div>
+        <svg class="mascot mascot-big" viewBox="0 0 310 355" role="img" aria-label="A cute round mascot">
+         <g stroke="#121522" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M108 223 Q80 246 88 290 Q89 305 103 305 L115 305 L115 332 Q132 343 147 326 L147 298 Q160 301 175 298 L176 328 Q190 343 206 329 L206 304 Q221 302 225 285 Q225 255 205 228" fill="#fff9fc"/>
+          <ellipse cx="72" cy="160" rx="15" ry="13" fill="#fff9fc"/><ellipse cx="244" cy="161" rx="15" ry="13" fill="#fff9fc"/>
+          <path d="M52 159 C54 84 91 48 157 48 C224 48 263 93 261 167 C258 229 221 253 157 254 C88 253 49 216 52 159Z" fill="#fffafa"/>
+          <path d="M130 156 L130 169 M159 156 L159 170" fill="none"/>
+          <path d="M117 123 l7 -2 M162 121 l7 2" fill="none" stroke-width="4.5"/>
+          <ellipse cx="100" cy="193" rx="20" ry="9" fill="#ef92d2"/><ellipse cx="207" cy="194" rx="20" ry="9" fill="#ef92d2"/>
+          <path d="M149 211 Q157 228 169 214 Q171 233 180 224" fill="none" stroke-width="5.5"/><path d="M174 220 q3 11 9 4 l-4 -8" fill="#f45672" stroke-width="3.5"/>
+          <path d="M105 256 Q89 255 89 271 Q91 288 111 286 Q128 280 120 267 Z" fill="#fff9fc"/><path d="M206 255 Q223 257 221 274 Q219 290 204 285 Q192 280 192 269Z" fill="#fff9fc"/>
+          <path d="M81 36 l-14 -16 M130 22 l-2 -18 M186 23 l7 -18 M230 39 l15 -14" fill="none"/>
+         </g>
+        </svg>
+        <div class="hero-base"><span>PLAYER #001</span><b>EG<span class="accent">OI</span> QUEEN</b><span>LEVEL 19</span></div>
+      </div>
+    </div>
+    <div class="hero-bottom"><span>// THIS CONTEST HAS ONE WINNER. SPOILER: IT'S YOU.</span><span>SCROLL? NAH. CLICK ENTER ↑</span></div>
+  </section>
+
+  <!-- SCREEN 2 / CODE CHALLENGE -->
+  <section id="screen-contest" class="screen" aria-labelledby="contest-heading">
+    <div class="contest-top"><span class="eyebrow">THE NOMIAPC PROBLEMSET</span><div class="progress-label"><span id="progress-num">01</span> / 03 <span class="progress-bar"><i id="progress-fill"></i></span></div></div>
+    <div class="contest-head">
+      <div><p class="section-kicker">PROBLEM <span id="problem-letter">A</span> <span class="kicker-dot">·</span> <span id="difficulty">800</span> POINTS</p><h2 id="contest-heading">The Sweetest Boxes</h2><p id="problem-story" class="story"></p></div>
+      <button class="button button-subtle" id="hints-btn" type="button">✦ NEED A HINT?</button>
+    </div>
+    <div class="problem-columns">
+      <div class="problem-info panel"><div class="panel-heading"><span>PROBLEM STATEMENT</span><span class="pill">TIME LIMIT: ∞ ♡</span></div>
+        <p id="problem-description"></p>
+        <div class="spec-row"><div><small>INPUT PARAMETERS</small><code id="problem-input"></code></div><div><small>RETURN TYPE</small><code>int</code></div></div>
+        <h3>Examples <span class="tiny">(not the only tests)</span></h3><div id="example-list" class="examples"></div>
+        <div id="hint-box" class="hint-box" hidden></div>
+        <div class="judging-note">ⓘ Enter one <strong>C++ integer expression</strong> in the blank. This mini-judge safely evaluates arithmetic, comparisons and <code>min/max</code>; it does not compile arbitrary C++.</div>
+      </div>
+      <div class="editor-area panel"><div class="editor-head"><div class="editor-dots"><i></i><i></i><i></i></div><span>solution.cpp</span><span class="editor-language">C++17*</span></div>
+        <div class="editor-main"><div class="editor-line"><span class="ln">1</span><span><em>#include</em> &lt;bits/stdc++.h&gt;</span></div><div class="editor-line"><span class="ln">2</span><span><em>using namespace</em> std;</span></div><div class="editor-line spacer-line"><span class="ln">3</span><span></span></div><div class="editor-line"><span class="ln">4</span><span><em>int</em> solve(<span id="function-args">int n, int k</span>) {</span></div><div class="editor-line"><span class="ln">5</span><span class="indent"><em>return</em> <span class="type-cursor">// complete below ↓</span></span></div>
+        <div class="code-input-line"><span class="ln">6</span><label class="input-code"><span class="hide-label">Expression to return:</span><input id="answer" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="your_expression_here" aria-label="C++ expression to return"/></label><span class="code-semicolon">;</span></div>
+        <div class="editor-line"><span class="ln">7</span><span>}</span></div></div>
+        <div class="editor-actions"><button id="submit-btn" type="button" class="button button-primary">▶ SUBMIT CODE</button><span class="keyboard-note">ENTER TO SUBMIT</span></div>
+        <div id="judge-result" class="judge-result" aria-live="polite"><span class="result-idle">_ verdict pending ...</span></div>
+        <button id="next-btn" class="button button-next" hidden type="button">NEXT PROBLEM <span>→</span></button>
+      </div>
+    </div>
+    <div class="contest-footer"><span>NomiaPC JUDGE · HUMAN FEELINGS NOT JUDGED</span><span id="run-counter">SUBMISSIONS: 0</span></div>
+  </section>
+
+  <!-- SCREEN 3 / GIFT REVEAL -->
+  <section id="screen-prize" class="screen center-screen" aria-labelledby="prize-heading">
+    <div class="eyebrow"><span class="live-dot"></span> ALL PROBLEMS ACCEPTED</div>
+    <h2 class="display-title" id="prize-heading">3 / 3 <span>AC.</span><br>ZERO DOUBTS.</h2>
+    <p class="section-sub">Of course you solved them. Who was I kidding?</p>
+    <div class="gift-halo"><button id="gift-box" type="button" class="gift-box" aria-label="Open your gift box"><span class="gift-bow bow-left"></span><span class="gift-bow bow-right"></span><span class="gift-lid"></span><span class="gift-body"></span><span class="gift-ribbon"></span><span class="gift-spark g1">✦</span><span class="gift-spark g2">✧</span></button></div>
+    <p id="gift-instruction" class="gift-instruction">↑ TAP TO UNWRAP YOUR PRIZE ↑</p>
+    <div class="prize-note" id="prize-note" hidden><img class="winner-photo" src="assets/nomia-photo2.jpg" alt="Nomia smiling and giving a peace sign"><span class="trophy-icon">🏆</span><p id="prize-msg"></p><button class="button button-primary" id="gift-received" type="button">Шагналаа авсан! →</button><small>Бэлгээ бодитоор аваад дараагийн хэсгийг нээгээрэй ♡</small></div>
+  </section>
+
+  <!-- SCREEN 4 / REAL INVITATION -->
+  <section id="screen-invite" class="screen center-screen invite-screen" aria-labelledby="invite-heading">
+    <div class="eyebrow">BONUS PROBLEM · UNLOCKED</div><h2 class="display-title" id="invite-heading">ONE LAST<br><span>SECRET.</span></h2>
+    <p class="section-sub">No more code. Just one little envelope.</p>
+    <button id="envelope" class="envelope-wrap" type="button" aria-label="Open the invitation envelope"><span class="env-back"></span><span class="env-letter">♡</span><span class="env-flap"></span><span class="env-front"></span><span class="env-seal">♡</span></button>
+    <p class="envelope-hint" id="envelope-hint">PRESS TO OPEN THE INVITATION</p>
+    <article id="letter-card" class="letter-card" hidden><div class="letter-top"><span>TO: НОМИА</span><span>FROM: ОРГИО</span></div><div class="letter-flourish">✦ ✧ ♡ ✧ ✦</div><h3 id="invite-title"></h3><div id="invite-paragraphs"></div><p id="invite-ps" class="ps"></p><p class="letter-sign">— <span id="sign-name">Оргио</span> ♡</p><div class="answer-actions"><button id="accept-invite" class="button button-primary" type="button">ТЭГЬЕ ♡</button><button id="later-invite" class="button button-outline" type="button">ӨӨР ӨДӨР ЯРИЛЦЪЯ</button></div><div id="reply-feedback" class="reply-feedback" aria-live="polite"></div><small class="reply-note">Товчлуурын хариу зөвхөн энэ дэлгэц дээр харагдана. Оргиод өөрт нь хэлээрэй.</small></article>
+    <p class="footer-message">MADE WITH C++, COURAGE & WAY TOO MANY FEELINGS. ♡</p>
+  </section>
+</main>
+<div class="toast" id="mascot-toast" aria-live="polite"></div>
+<footer class="site-footer"><span>© NOMIAPC · AN INVITATION, NOT AN OLYMPIAD</span><button type="button" id="restart" class="footer-reset">↺ START OVER</button></footer>
+<script src="content.js"></script><script src="judge.js"></script><script src="script.js"></script>
+</body>
+</html>
