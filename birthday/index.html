@@ -1,0 +1,668 @@
+
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#fff8ee">
+
+	<title>For Nomia · 19</title>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<!-- ==================== NAVIGATION ==================== -->
+
+	<nav>
+		<a class="brand" href="#home">
+			N<span>♡</span>
+		</a>
+
+		<a href="#reasons">19 little things</a>
+		<a href="#play">Play</a>
+		<a href="game.html" class="nav-game">Adventure ↗</a>
+	</nav>
+
+
+	<main>
+
+		<!-- ==================== HERO ==================== -->
+
+		<section class="hero wrap" id="home">
+
+			<div class="hero-copy">
+				<p class="eyebrow">
+					OCTOBER 30 · YOUR LITTLE BIRTHDAY WORLD
+				</p>
+
+				<h1>
+					Happy<br>
+					<em>birthday,</em><br>
+					Nomia<span class="heart">♡</span>
+				</h1>
+
+				<p class="intro">
+					19 насны төрсөн өдрийн мэнд!<br>
+					Өнөөдөр энэ жижигхэн ертөнц бүхэлдээ чинийх.
+				</p>
+
+				<a class="button" href="#reasons">
+					Нээж үзэх үү? <span>↓</span>
+				</a>
+
+				<p class="handwritten">
+					a little joy, just for you.
+				</p>
+			</div>
+
+			<div class="hero-art">
+
+				<span class="age">
+					19
+					<small>looks good on you</small>
+				</span>
+
+				<figure class="polaroid">
+					<img
+						src="assets/hero.jpg"
+						width="900"
+						height="900"
+						alt="Nomia гадаа инээмсэглэн peace тэмдэг үзүүлж байгаа нь"
+					>
+					<figcaption>the birthday girl ♡</figcaption>
+				</figure>
+
+				<button
+					class="mascot"
+					id="mascot"
+					aria-label="Бяцхан найзыг дарах"
+				>
+					<img
+						src="assets/character.png"
+						alt="Чиний дуртай бяцхан дүр"
+					>
+				</button>
+
+				<span class="spark s1">✧</span>
+				<span class="spark s2">✳</span>
+
+			</div>
+
+		</section>
+
+
+		<!-- ==================== TICKER ==================== -->
+
+		<div class="ticker" aria-hidden="true">
+			<span>
+				MAKE A LITTLE WISH ✧ EAT SOMETHING SWEET ✧
+				BE YOURSELF ♡ HAPPY NINETEEN ✧
+				MAKE A LITTLE WISH ✧ EAT SOMETHING SWEET ✧
+			</span>
+		</div>
+
+
+		<!-- ==================== 19 REASONS ==================== -->
+
+		<section class="wrap" id="reasons">
+
+			<div class="section-head">
+
+				<p class="eyebrow">01 / THE LITTLE THINGS</p>
+
+				<h2>
+					19 reasons.<br>
+					<em>One Nomia.</em>
+				</h2>
+
+				<p>
+					Хөөрхөн гэдгээс чинь гадна чамд дуртай байх<br>
+					шалтгаанууд зөндөө бий. Нэг нэгээр нь нээгээрэй.
+				</p>
+
+			</div>
+
+			<div id="reasons-grid" class="reasons"></div>
+
+			<p
+				class="small center"
+				id="reasons-count"
+				aria-live="polite"
+			>
+				0 / 19 нээгдлээ
+			</p>
+
+		</section>
+
+
+		<!-- ==================== MINI GAMES ==================== -->
+
+		<section class="play-band" id="play">
+
+			<div class="wrap">
+
+				<div class="section-head">
+
+					<p class="eyebrow">02 / A LITTLE PLAY BREAK</p>
+
+					<h2>
+						Have fun princess.😌<br>
+						<em>Zero seriousness.</em>🤪
+					</h2>
+
+					<p>Дуртайгаа сонго. Хүссэнээрээ тогло.👾</p>
+
+				</div>
+
+
+				<div class="games">
+
+					<!-- GAME 1: MEMORY MATCH -->
+
+					<article class="game-card">
+
+						<span class="tag">01 · MATCH</span>
+
+						<h3>Perfect little pairs</h3>
+
+						<p>Зургаан хосыг олоорой.</p>
+
+						<div id="memory" class="memory"></div>
+
+						<div class="game-footer">
+
+							<span id="memory-status" aria-live="polite">
+								0 / 6 хос
+							</span>
+
+							<button
+								id="memory-reset"
+								class="text-button"
+							>
+								Дахин ↻
+							</button>
+
+						</div>
+
+					</article>
+
+
+					<!-- GAME 2: CATCH THE STARS -->
+
+					<article class="game-card">
+
+						<span class="tag">02 · CATCH</span>
+
+						<h3>Nineteen sweet things</h3>
+
+						<p>
+							Сагсаа чирж 19 од цуглуул.
+							Үүлнээс бултаарай.
+						</p>
+
+						<canvas
+							id="catch"
+							width="600"
+							height="430"
+							aria-label="Од барих тоглоом"
+						></canvas>
+
+						<div class="game-footer">
+
+							<span id="catch-status" aria-live="polite">
+								★ 0 / 19
+							</span>
+
+							<button id="catch-start">
+								Тоглох →
+							</button>
+
+						</div>
+
+						<p class="small">
+							Чирэх / ← → товч.
+							Хожигдвол дахин эхэлж болно.
+						</p>
+
+					</article>
+
+
+					<!-- GAME 3: UNWRAP THE GIFT -->
+
+					<article class="game-card gift-card">
+
+						<span class="tag">03 · UNWRAP</span>
+
+						<h3>A suspicious little gift💝</h3>
+
+						<p>Дотор нь юу байгаа бол?</p>
+
+						<button
+							id="gift"
+							aria-label="Бэлгийг задлах"
+						>
+							<span>🎁</span>
+						</button>
+
+						<p id="gift-text" aria-live="polite">
+							3 удаа дараад үз.
+						</p>
+
+					</article>
+
+				</div>
+
+
+				<!-- MAIN ADVENTURE GAME -->
+
+				<a class="adventure-link" href="game.html">
+
+					<img src="assets/character.png" alt="">
+
+					<div>
+
+						<span class="eyebrow">
+							A WHOLE OTHER LITTLE WORLD
+						</span>
+
+						<h3>Nomia’s star adventure ↗</h3>
+
+						<p>
+							Гурван ертөнц. 57 од. Нэг бяцхан зоригтон.<br>
+							Утсаа хөндлөн бариад, хоёр гараараа тоглоорой.
+						</p>
+
+					</div>
+
+					<span class="play-circle">▶</span>
+
+				</a>
+
+			</div>
+
+		</section>
+
+
+		<!-- ==================== PHOTO MOMENTS ==================== -->
+
+		<section class="wrap moments">
+
+			<div>
+
+				<p class="eyebrow">03 / JUST YOU, BEING YOU</p>
+
+				<h2>
+					Big dreams.<br>
+					<em>Little moments.</em>🏆
+				</h2>
+
+				<p>
+					Мөрөөдлийнхөө төлөө хичээдэг чиний тэр зан.<br>
+					Жижигхэн зүйлд чин сэтгэлээсээ баярладаг чинь.<br>
+					Аль аль нь үнэхээр гоё.
+				</p>
+
+			</div>
+
+
+			<div class="photo-pair">
+
+				<figure class="polaroid">
+
+					<img
+						src="assets/medal.jpg"
+						alt="Nomia медалиа хазаж инээмсэглэж байгаа нь"
+						loading="lazy"
+						width="900"
+						height="900"
+					>
+
+					<figcaption>
+						that smile says everything.
+					</figcaption>
+
+				</figure>
+
+
+				<figure class="polaroid">
+
+					<img
+						src="assets/study.jpg"
+						alt="Nomia хичээлээ хийж байгаа нь"
+						loading="lazy"
+						width="900"
+						height="900"
+					>
+
+					<figcaption>
+						one little step at a time.
+					</figcaption>
+
+				</figure>
+
+			</div>
+
+		</section>
+
+
+		<!-- ==================== CODING CHALLENGE ==================== -->
+
+		<section class="code-band" id="code">
+
+			<div class="wrap code-layout">
+
+				<!-- PROBLEM STATEMENT -->
+
+				<div>
+
+					<p class="eyebrow">04 / ONE SMALL CHALLENGE</p>
+
+					<h2>
+						Your move,<br>
+						<em>Nomia.</em>
+					</h2>
+
+					<h3>A. A little less chaos</h3>
+
+					<p>
+						<code>s</code> мөр нь <code>A</code>,
+						<code>W</code> үсгүүдээс бүрдэнэ.
+						Нэг үйлдлээр зөвхөн <code>W</code>-ээс
+						тогтсон дараалсан хэсгийг бүхэлд нь
+						<code>A</code> болгож болно.
+					</p>
+
+					<p>
+						Бүгдийг <code>A</code> болгоход шаардлагатай
+						хамгийн цөөн үйлдлийн тоог буцаа.
+					</p>
+
+					<p class="small">
+						1 ≤ n ≤ 1000 · s.size() = n
+					</p>
+
+
+					<!-- SAMPLE TEST CASE -->
+
+					<div class="sample">
+
+						<div>
+							INPUT<br>
+							<strong>
+								9<br>
+								WWAWWWAWA
+							</strong>
+						</div>
+
+						<div>
+							OUTPUT<br>
+							<strong>3</strong>
+						</div>
+
+					</div>
+
+					<p>
+						Үндсэн алгоритмыг бүхэлд нь чи бичнэ.
+					</p>
+
+				</div>
+
+
+				<!-- CODE EDITOR -->
+
+				<div class="editor">
+
+					<div class="editor-bar">
+						<span>● ● ●</span>
+						<strong>Nomia.cpp</strong>
+					</div>
+
+					<pre>int solve(string s) {
+    int n = s.size();</pre>
+
+					<label class="sr-only" for="solution">
+						solve функцийн үндсэн код
+					</label>
+
+					<textarea
+						id="solution"
+						spellcheck="false"
+						autocapitalize="off"
+						autocomplete="off"
+						placeholder="// Write your algorithm here
+// Return the minimum number of operations."
+					></textarea>
+
+					<pre>}</pre>
+
+
+					<!-- SUBMISSION -->
+
+					<div class="editor-actions">
+
+						<button id="submit">
+							Submit solution ↗
+						</button>
+
+						<span id="verdict" role="status">
+							Ready when you are.
+						</span>
+
+					</div>
+
+
+					<!-- SUPPORTED C++ SYNTAX -->
+
+					<details>
+
+						<summary>Supported syntax</summary>
+
+						<p>
+							Local C++ subset: int, bool, char;
+							assignments, ++/--; for, while, if/else,
+							break, continue, return; s[i], n, s.size();
+							arithmetic and boolean expressions.
+							No includes, STL calls or function
+							definitions inside this box.
+						</p>
+
+					</details>
+
+				</div>
+
+			</div>
+
+		</section>
+
+
+		<!-- ==================== BIRTHDAY WISH ==================== -->
+
+		<section id="wish" class="wish-section">
+
+			<div class="wrap center">
+
+				<p class="eyebrow">
+					05 / THIS MOMENT IS YOURS
+				</p>
+
+				<h2>
+					Close your eyes.<br>
+					<em>Make a wish.</em>✨
+				</h2>
+
+				<p>Хүслээ бодоод лаан дээр дараарай.</p>
+
+
+				<!-- INTERACTIVE BIRTHDAY CAKE -->
+
+				<div class="wish-scene">
+
+					<span class="wish-star ws1">✧</span>
+					<span class="wish-star ws2">✦</span>
+					<span class="wish-star ws3">♡</span>
+
+					<button
+						id="candle"
+						aria-label="Лааг үлээх"
+					>
+
+						<span class="flame"></span>
+						<span class="wick"></span>
+						<span class="candle-stick"></span>
+
+						<span class="cake-top"></span>
+						<span class="cake-bottom"></span>
+						<span class="cake-plate"></span>
+
+						<span class="cake-number">19</span>
+
+					</button>
+
+				</div>
+
+
+				<p id="wish-status" aria-live="polite">
+					a little wish. a whole lot of possibility.
+				</p>
+
+
+				<!-- HIDDEN BIRTHDAY PHOTO -->
+
+				<figure
+					class="polaroid wish-photo"
+					id="wish-photo"
+					hidden
+				>
+
+					<img
+						src="assets/cake.jpg"
+						alt="Төрсөн өдрийн лаатай бялуугаа барьсан Nomia"
+						width="900"
+						height="900"
+					>
+
+					<figcaption>
+						may your wishes find their way to you ♡
+					</figcaption>
+
+				</figure>
+
+			</div>
+
+		</section>
+
+
+		<!-- ==================== BIRTHDAY LETTER ==================== -->
+
+		<section class="letter-section" id="letter">
+
+			<div class="letter-paper">
+
+				<p class="eyebrow">
+					06 / ONE LAST LITTLE THING
+				</p>
+
+				<h2>
+					Номиад <em>♡</em>
+				</h2>
+
+
+				<!-- EDIT YOUR LETTER BELOW -->
+
+				<p>
+					19 насны төрсөн өдрийн мэнд хүргэе, Номиа!
+				</p>
+
+				<p>
+					Чамд зориулж нэг жижигхэн ертөнц хиймээр
+					санагдсан юм. Тоглож, сонирхож, ядаж хэдэн
+					удаа инээмсэглэсэн гэж найдаж байна. Хэхэ.
+				</p>
+
+				<p>
+                    Энэ өдрийн эзэн бол арчимч, зааварлагч, зөвлөгч байж чаддаг том аниа Номиа 
+                    хэрнээ жижигхэн өхөөрдөм зүйлд хүүхэд шиг баярлаж хөөрч 
+                    чаддаг жижкэн Номиа ч бас мөн. Ямар ч өрөөнд чи байвал байгаагүйгээсээ илүү сайхан,
+                    илүү хөгжилтэй болдог. Энгийн өдрийг ч гэрэлтүүлдэг нар шиг хүн дээ.
+				</p>
+
+				<p>
+					Чиний ухаантай, хөдөлмөрч зан болон хүмүүсийн бодлыг өөрчилж
+                    охид ч маш өндөр түвшинд сэтгэж чадахыг харуулснаар бахархдаг. 
+					Гэхдээ чамд дуртай байх шалтгаан зөвхөн
+					амжилт чинь биш. Бусдыг ойлгодог, сайхан
+					сэтгэлтэй, үнэнч, шударга, өөрийнхөөрөө байдаг чинь
+					бас их гоё.
+				</p>
+
+				<p>
+					Хамт сууж хичээл хийсэн, хоол идсэн,
+					бодлого бодсон, гэр рүү алхсан энгийн
+					мөчүүд ч надад сайхан дурсамж болж үлдсэн шүү.
+				</p>
+
+				<p>
+					Шинэ насанд чинь хүссэн амжилтууд,
+					ICPC-ийн медаль, төлөвлөсөн бас төлөвлөөгүй олон
+					сайхан учрал тохиолдоосой. Тэр бүхний
+					хажуугаар амарч, дуртай юмаа хийж,
+					амттай юм идэж, өөрөөрөө бахархах, баярлах 
+					цаг зөндөө байгаасай.
+				</p>
+
+				<p>
+					Бүх өдөр төгс байх албагүй. Чи ч гэсэн
+					үргэлж мундаг байх албагүй шүү.
+                    Гэхдээ л дандаа мундаг байгаад байдаг л даа.
+					Юутай ч үгээр л өөрийнхөөрөө, аз жаргалтай
+					байгаасай гэж хүсэж байна.
+				</p>
+
+				<p>
+					<strong>
+						19 нас чинь инээд хөөртэй, дулаахан,
+						эргээд дурсахад сайхан жил байг.
+					</strong>
+				</p>
+
+				<p>
+					Төрсөн өдрийн мэнд, Номиа. ♡
+				</p>
+
+				<p class="signature">
+					— Оргио
+				</p>
+
+				<!-- END OF LETTER -->
+
+			</div>
+
+
+			<!-- FOOTER -->
+
+			<footer>
+				made for your smile ♡
+				<a href="#home">Дахиад эхлэх ↑</a>
+			</footer>
+
+		</section>
+
+	</main>
+
+
+	<!-- ==================== GLOBAL ELEMENTS ==================== -->
+
+	<div id="toast" role="status" hidden></div>
+
+	<div id="confetti" aria-hidden="true"></div>
+
+
+	<!-- ==================== JAVASCRIPT ==================== -->
+
+	<script src="judge.js"></script>
+	<script src="page.js"></script>
+
+</body>
+</html>

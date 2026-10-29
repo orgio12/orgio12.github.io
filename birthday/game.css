@@ -1,0 +1,346 @@
+
+* {
+	box-sizing:border-box
+}
+
+html,body {
+	margin:0;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	overscroll-behavior:none;
+	background:#c8d5bd;
+	color:#49382f;
+	font-family:Georgia,serif
+}
+
+button,a {
+	touch-action:none;
+	-webkit-tap-highlight-color:transparent
+}
+
+button {
+	font:inherit;
+	border:0;
+	color:inherit;
+	cursor:pointer
+}
+
+#game-shell {
+	position:relative;
+	width:100%;
+	height:100dvh;
+	overflow:hidden;
+	display:flex;
+	align-items:center;
+	justify-content:center
+}
+
+canvas {
+	display:block;
+	width:100%;
+	height:100%;
+	object-fit:contain;
+	background:#e8edde;
+	touch-action:none
+}
+
+header {
+	position:absolute;
+	left:max(20px,env(safe-area-inset-left));
+	right:max(20px,env(safe-area-inset-right));
+	top:max(15px,env(safe-area-inset-top));
+	display:flex;
+	align-items:center;
+	gap:12px;
+	z-index:2
+}
+
+header a,header button {
+	background:#fffaf0e8;
+	border:1px solid #d8cdbb;
+	width:42px;
+	height:42px;
+	border-radius:50%;
+	display:grid;
+	place-items:center;
+	text-decoration:none;
+	color:inherit;
+	font-size:20px
+}
+
+header div {
+	background:#fffaf0e8;
+	border:1px solid #d8cdbb;
+	padding:10px 20px;
+	border-radius:12px;
+	display:flex;
+	gap:20px;
+	align-items:center;
+	font:12px Arial
+}
+
+header #pause {
+	margin-left:auto
+}
+
+#hud {
+	color:#9a664e
+}
+
+
+/* Note: this comment is a section divider. */
+.controls {
+	position:absolute;
+	bottom:max(20px,env(safe-area-inset-bottom));
+	left:max(25px,env(safe-area-inset-left));
+	right:max(25px,env(safe-area-inset-right));
+	display:flex;
+	justify-content:space-between;
+	pointer-events:none;
+	z-index:3
+}
+
+.controls>div {
+	display:flex;
+	align-items:end;
+	gap:14px
+}
+
+.controls button {
+	pointer-events:auto;
+	width:70px;
+	height:70px;
+	border-radius:24px;
+	border:2px solid #fff8;
+	box-shadow:0 4px 0 #816b5f44;
+	background:#fffaf0bf;
+	font-size:26px;
+	user-select:none;
+	touch-action:none
+}
+
+.controls button:active,.controls button.pressed {
+	background:#e3b6c2;
+	transform:translateY(3px);
+	box-shadow:none
+}
+
+.controls button.jump {
+	width:86px;
+	height:86px;
+	border-radius:50%;
+	background:#e4b0bfcf
+}
+
+.controls small {
+	font:9px Arial;
+	letter-spacing:1px;
+	display:block
+}
+
+.controls button.dash {
+	border-radius:50%;
+	width:62px;
+	height:62px
+}
+
+.controls .dash.cooldown {
+	opacity:.45
+}
+
+
+/* OVERLAY */
+
+#overlay {
+	position:absolute;
+	inset:0;
+	background:#efe6d5bb;
+	backdrop-filter:blur(7px);
+	z-index:5;
+	display:grid;
+	place-items:center;
+	padding:18px
+}
+
+.modal {
+	text-align:center;
+	width:min(560px,95%);
+	background:#fffaf0;
+	border:1px solid #ddcdb9;
+	border-radius:18px;
+	padding:32px;
+	box-shadow:0 20px 70px #50432f22
+}
+
+.eyebrow {
+	font:9px Arial;
+	letter-spacing:2px
+}
+
+h1 {
+	font-weight:400;
+	font-size:clamp(34px,5vw,64px);
+	line-height:1.05;
+	margin:20px 0
+}
+
+h1 em {
+	color:#cc788f
+}
+
+.modal p {
+	font-size:14px;
+	line-height:1.7
+}
+
+#instructions {
+	font:11px/1.7 Arial;
+	color:#887365
+}
+
+#instructions span {
+	display:inline-block;
+	margin:0 6px
+}
+
+#instructions p {
+	font-size:11px
+}
+
+#modal-action {
+	background:#49382f;
+	color:#fff;
+	padding:14px 30px;
+	border-radius:30px;
+	margin-top:10px
+}
+
+.footnote {
+	font:10px Arial!important;
+	color:#8b7566;
+	margin-bottom:0
+}
+
+
+/* ROTATE SCREEN */
+
+#rotate {
+	display:none;
+	position:absolute;
+	inset:0;
+	background:#fff8ee;
+	z-index:10;
+	text-align:center;
+	align-content:center;
+	padding:30px
+}
+
+#rotate>span {
+	font-size:75px;
+	color:#cb7890
+}
+
+#rotate h2 {
+	font-size:35px;
+	font-weight:400
+}
+
+#rotate p,#rotate a {
+	font:14px/1.7 Arial;
+	color:#8b7566
+}
+
+[hidden] {
+	display:none!important
+}
+
+
+/* PORTRAIT MODE */
+
+@media(orientation:portrait) and (max-width:750px) {
+
+	#rotate {
+		display:block
+	}
+
+}
+
+
+/* SHORT SCREENS */
+
+@media(max-height:500px) {
+
+	.modal {
+		padding:18px 30px;
+		max-width:620px
+	}
+
+	h1 {
+		font-size:36px;
+		margin:10px 0
+	}
+
+	h1 br {
+		display:none
+	}
+
+	.modal p {
+		font-size:12px;
+		margin:8px 0
+	}
+
+	#instructions p {
+		font-size:10px
+	}
+
+	.controls {
+		bottom:14px
+	}
+
+	.controls button {
+		width:58px;
+		height:58px
+	}
+
+	.controls button.jump {
+		width:72px;
+		height:72px
+	}
+
+	.controls button.dash {
+		width:54px;
+		height:54px
+	}
+
+	header {
+		top:10px
+	}
+
+	header div {
+		padding:8px 14px
+	}
+
+	header a,header button {
+		height:35px;
+		width:35px
+	}
+
+}
+
+
+/* SMALL SCREENS */
+
+@media(max-width:600px) {
+
+	header strong {
+		font-size:10px
+	}
+
+	header div {
+		gap:8px;
+		padding:8px;
+		font-size:10px
+	}
+
+}
