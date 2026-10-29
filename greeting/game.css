@@ -1,0 +1,483 @@
+/* 01. LOCALLY BUNDLED TYPE AND GAME SURFACE */
+@font-face {
+	font-family: "Nomia Sans";
+	src: url("assets/fonts/nomia-sans.woff") format("woff");
+	font-weight: 400;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Nomia Sans";
+	src: url("assets/fonts/nomia-sans-bold.woff") format("woff");
+	font-weight: 700;
+	font-display: swap;
+}
+* {
+	box-sizing: border-box;
+}
+html,
+body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	overscroll-behavior: none;
+	background: #e4e5cd;
+	color: #51443d;
+	font-family: "Nomia Sans", sans-serif;
+}
+button,
+a {
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent;
+}
+button {
+	font: inherit;
+	border: 0;
+	color: inherit;
+	cursor: pointer;
+}
+button:focus-visible,
+a:focus-visible {
+	outline: 3px solid #c788a0;
+	outline-offset: 4px;
+}
+#game-shell {
+	position: relative;
+	width: 100%;
+	height: 100dvh;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+canvas {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	background: #e8e7d5;
+	touch-action: none;
+}
+[hidden] {
+	display: none !important;
+}
+
+/* 02. NAVIGATION AND COUNTERS */
+header {
+	position: absolute;
+	left: max(14px, env(safe-area-inset-left));
+	right: max(14px, env(safe-area-inset-right));
+	top: max(12px, env(safe-area-inset-top));
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	z-index: 2;
+}
+header a,
+header button {
+	background: #fffaf0ed;
+	border: 1.5px solid #b9a98f;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	text-decoration: none;
+	color: inherit;
+	font-size: 19px;
+}
+.hud-panel {
+	background: #fffaf0ed;
+	border: 1.5px solid #b9a98f;
+	padding: 9px 16px;
+	border-radius: 12px;
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	font-size: 10px;
+}
+#hud {
+	color: #906b55;
+	white-space: nowrap;
+}
+header #sound-toggle {
+	width: auto;
+	font-size: 9px;
+	padding: 0 12px;
+	border-radius: 20px;
+	margin-left: auto;
+}
+#game-toast {
+	position: absolute;
+	top: 68px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #fff8e8ef;
+	border: 1px solid #cdbb9f;
+	border-radius: 12px;
+	padding: 9px 18px;
+	font-size: 11px;
+	z-index: 4;
+}
+#secret-enter {
+	position: absolute;
+	left: 50%;
+	bottom: 30px;
+	transform: translateX(-50%);
+	background: #fff3ce;
+	border: 2px solid #b49a6d;
+	border-radius: 25px;
+	padding: 12px 20px;
+	font-size: 12px;
+	z-index: 4;
+}
+
+/* 03. TWO-THUMB CONTROLS */
+.controls {
+	position: absolute;
+	bottom: max(18px, env(safe-area-inset-bottom));
+	left: max(24px, env(safe-area-inset-left));
+	right: max(24px, env(safe-area-inset-right));
+	display: flex;
+	justify-content: space-between;
+	pointer-events: none;
+	z-index: 3;
+}
+.controls > div {
+	display: flex;
+	align-items: end;
+	gap: 12px;
+}
+.controls button {
+	pointer-events: auto;
+	width: 68px;
+	height: 68px;
+	border-radius: 23px;
+	border: 2px solid #8a7969;
+	box-shadow: 0 4px 0 #8a796944;
+	background: #fff7e9df;
+	font-size: 24px;
+	user-select: none;
+	touch-action: none;
+}
+.controls button:active,
+.controls button.pressed {
+	background: #e7bac9;
+	transform: translateY(3px);
+	box-shadow: none;
+}
+.controls button.jump {
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+	background: #d5dfbfe8;
+}
+.controls button.shoot {
+	width: 82px;
+	height: 82px;
+	border-radius: 50%;
+	background: #e8b5c6ed;
+}
+.controls button.dash {
+	border-radius: 50%;
+	width: 52px;
+	height: 52px;
+}
+.controls small {
+	font-size: 8px;
+	letter-spacing: 1px;
+	display: block;
+}
+.controls .dash.cooldown {
+	opacity: 0.45;
+}
+
+/* 04. START, PAUSE AND WIN SCREENS */
+#overlay {
+	position: absolute;
+	inset: 0;
+	background: #efe6d5bd;
+	backdrop-filter: blur(6px);
+	z-index: 5;
+	display: grid;
+	place-items: center;
+	padding: 18px;
+}
+.modal {
+	text-align: center;
+	width: min(610px, 95%);
+	max-height: 100%;
+	overflow-y: auto;
+	background: #fff9ec;
+	border: 1.5px solid #b9a98f;
+	border-radius: 22px;
+	padding: 30px;
+	box-shadow: 0 20px 70px #50432f22;
+}
+.eyebrow {
+	font-size: 8px;
+	letter-spacing: 2px;
+}
+h1 {
+	font-weight: 700;
+	font-size: clamp(32px, 4.5vw, 55px);
+	line-height: 1.15;
+	letter-spacing: -2px;
+	margin: 20px 0;
+}
+h1 em {
+	color: #bc748d;
+	font-style: normal;
+}
+.modal p {
+	font-size: 12px;
+	line-height: 1.8;
+}
+#instructions {
+	font-size: 9px;
+	line-height: 1.8;
+	color: #887365;
+}
+#instructions span {
+	display: inline-block;
+	margin: 0 5px;
+}
+#instructions p {
+	font-size: 10px;
+}
+#modal-action,
+#secret-return {
+	background: #51443d;
+	color: #fff;
+	padding: 13px 25px;
+	border-radius: 30px;
+	margin-top: 10px;
+	font-size: 12px;
+}
+.quiet-button {
+	background: transparent;
+	display: block;
+	margin: 12px auto;
+	font-size: 10px;
+	text-decoration: underline;
+}
+.back-link {
+	display: block;
+	margin-top: 15px;
+	font-size: 10px;
+	color: #8b7566;
+}
+
+/* 05. SECRET MUSHROOM ROOM */
+#secret-room {
+	position: absolute;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	z-index: 6;
+	padding: 15px;
+	background: #ccb5b9d9;
+	backdrop-filter: blur(8px);
+}
+.secret-interior {
+	position: relative;
+	overflow: hidden;
+	width: min(650px, 96%);
+	max-height: 100%;
+	padding: 30px;
+	border-radius: 110px 110px 30px 30px;
+	border: 3px solid #9d7d80;
+	background:
+		repeating-linear-gradient(90deg, #fff4d808 0 25px, #b9837a08 25px 26px),
+		radial-gradient(ellipse at top, #fff1c7, #e5c4b5);
+	text-align: center;
+}
+.secret-interior h2 {
+	font-size: 27px;
+	line-height: 1.35;
+	margin: 14px 0 0;
+}
+.secret-interior p {
+	font-size: 12px;
+	line-height: 1.8;
+}
+.room-scene {
+	display: flex;
+	justify-content: center;
+	align-items: end;
+	height: 145px;
+	border-bottom: 3px solid #a6877244;
+	margin: 0 auto 18px;
+	width: 65%;
+}
+.room-scene img {
+	width: 120px;
+	height: 150px;
+	object-fit: cover;
+	mix-blend-mode: multiply;
+}
+#secret-chest {
+	padding: 5px;
+	font-size: 65px;
+	background: none;
+}
+.room-star {
+	position: absolute;
+	color: #c29a54;
+	font: 35px Georgia;
+	animation: bob 3s infinite;
+}
+.r1 {
+	top: 70px;
+	left: 40px;
+}
+.r2 {
+	top: 160px;
+	right: 30px;
+}
+.r3 {
+	bottom: 80px;
+	left: 30px;
+	font-size: 22px;
+}
+
+/* 06. PHONE ORIENTATION AND COMPACT LANDSCAPE */
+#rotate {
+	display: none;
+	position: absolute;
+	inset: 0;
+	background: #fff8ee;
+	z-index: 10;
+	text-align: center;
+	align-content: center;
+	padding: 30px;
+}
+#rotate > span {
+	font-size: 75px;
+	color: #cb7890;
+}
+#rotate h2 {
+	font-size: 29px;
+	font-weight: 700;
+}
+#rotate p,
+#rotate a {
+	font-size: 13px;
+	line-height: 1.8;
+	color: #8b7566;
+}
+@media (orientation: portrait) and (max-width: 750px) {
+	#rotate {
+		display: block;
+	}
+}
+@media (max-height: 500px) {
+	.modal {
+		padding: 18px 25px;
+	}
+	h1 {
+		font-size: 30px;
+		margin: 10px 0;
+	}
+	h1 br {
+		display: none;
+	}
+	.modal p {
+		font-size: 10px;
+		margin: 8px 0;
+	}
+	#instructions p {
+		font-size: 9px;
+	}
+	.controls {
+		bottom: 12px;
+	}
+	.controls button {
+		width: 54px;
+		height: 54px;
+		font-size: 21px;
+	}
+	.controls button.jump {
+		width: 61px;
+		height: 61px;
+	}
+	.controls button.shoot {
+		width: 68px;
+		height: 68px;
+	}
+	.controls button.dash {
+		width: 45px;
+		height: 45px;
+	}
+	header {
+		top: 8px;
+	}
+	.hud-panel {
+		padding: 8px 10px;
+		font-size: 9px;
+		gap: 10px;
+	}
+	header a,
+	header button {
+		height: 33px;
+		width: 33px;
+	}
+	.secret-interior {
+		padding: 15px 30px;
+		border-radius: 65px 65px 20px 20px;
+	}
+	.secret-interior h2 {
+		font-size: 22px;
+		margin: 5px 0;
+	}
+	.secret-interior h2 br {
+		display: none;
+	}
+	.secret-interior p {
+		font-size: 10px;
+		margin: 7px 0;
+	}
+	.room-scene {
+		height: 85px;
+		margin-bottom: 8px;
+	}
+	.room-scene img {
+		height: 100px;
+		width: 85px;
+	}
+	#secret-chest {
+		font-size: 48px;
+	}
+	#secret-return {
+		padding: 10px 20px;
+		margin-top: 3px;
+	}
+	.back-link {
+		margin-top: 8px;
+	}
+}
+@media (max-width: 700px) {
+	.hud-panel {
+		flex-direction: column;
+		gap: 2px;
+		align-items: start;
+		font-size: 8px;
+	}
+	header {
+		gap: 7px;
+	}
+	header #sound-toggle {
+		padding: 0 8px;
+		font-size: 8px;
+	}
+}
+@keyframes bob {
+	50% {
+		transform: translateY(-7px);
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation: none !important;
+	}
+}
